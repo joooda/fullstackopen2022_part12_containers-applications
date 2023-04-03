@@ -1,0 +1,15 @@
+GET http://localhost:3000/todos
+
+###
+
+GET http://localhost:3000/todos/642af824b2f9d4b1a4cf6098
+
+###
+
+PUT http://localhost:3000/todos/642af824b2f9d4b1a4cf6098 HTTP/1.1
+content-type: application/json
+
+{
+  "text": "Learn about cool stuff",
+  "done": true
+}
