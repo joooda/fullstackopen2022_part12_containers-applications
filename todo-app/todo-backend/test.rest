@@ -2,14 +2,28 @@ GET http://localhost:3000/todos
 
 ###
 
-GET http://localhost:3000/todos/642af824b2f9d4b1a4cf6098
+GET http://localhost:3000/todos/642c590a6169f5b2f2ea08e8
 
 ###
 
-PUT http://localhost:3000/todos/642af824b2f9d4b1a4cf6098 HTTP/1.1
+PUT http://localhost:3000/todos/642c590a6169f5b2f2ea08e8 HTTP/1.1
 content-type: application/json
 
 {
   "text": "Learn about cool stuff",
   "done": true
 }
+
+###
+
+POST http://localhost:3000/todos/ HTTP/1.1
+content-type: application/json
+
+{
+  "text": "Learn about cool stuff 2",
+  "done": false
+}
+
+###
+
+GET http://localhost:3000/todos/statistics
