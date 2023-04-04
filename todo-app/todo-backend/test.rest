@@ -26,4 +26,4 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/todos/statistics
+GET http://localhost:3000/statistics
