@@ -9,5 +9,7 @@ services:
     ports:
       - 3000:3000
     container_name: todo-frontend-dev
+    environment:
+      - REACT_APP_BACKEND_URL: http://localhost:3001
   debug-helper:
     image: busybox
