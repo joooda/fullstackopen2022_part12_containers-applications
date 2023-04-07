@@ -7,8 +7,6 @@ RUN npm ci
 
 RUN CI=true npm test
 
-ENV REACT_APP_BACKEND_URL=http://localhost:3001
-
 RUN npm run build
 
 FROM nginx:1.20-alpine
