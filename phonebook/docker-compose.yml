@@ -3,24 +3,16 @@ services:
     image: phonebook-frontend
     build:
       context: ./frontend/
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./frontend/:/usr/src/app
-      # following line needed to "exclude" host node_modules, otherwise npm install needed on host
-      # https://stackoverflow.com/questions/29181032/add-a-volume-to-docker-but-exclude-a-sub-folder
-      # not really sure what this means, really annoying
-      # - /usr/src/app/node_modules/
-      # environment:
-      #   - REACT_APP_BACKEND_URL=api/
   server:
     image: phonebook-backend
     build:
       context: ./backend/
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./backend/:/usr/src/app
-      # yup same here
-      - /usr/src/app/node_modules/
     environment:
       - MONGODB_URI=mongodb://the_username:the_password@mongo_db:27017/phonebook_db
       - PORT=3001
@@ -38,10 +30,12 @@ services:
   nginx:
     image: nginx:1.20.1
     volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     container_name: reverse-proxy
     depends_on:
       - server
       - front
+  debug-helper:
+    image: busybox

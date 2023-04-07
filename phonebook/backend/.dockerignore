@@ -6,4 +6,3 @@ dev.Dockerfile
 ./mongo_data
 ./mongo/mongo-init.js
 .env
-package-lock.json
