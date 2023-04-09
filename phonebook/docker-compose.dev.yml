@@ -9,9 +9,7 @@ services:
       # following line needed to "exclude" host node_modules, otherwise npm install needed on host
       # https://stackoverflow.com/questions/29181032/add-a-volume-to-docker-but-exclude-a-sub-folder
       # not really sure what this means, really annoying
-      # - /usr/src/app/node_modules/
-      # environment:
-      #   - REACT_APP_BACKEND_URL=api/
+      - /usr/src/app/node_modules/
   server:
     image: phonebook-backend
     build:
