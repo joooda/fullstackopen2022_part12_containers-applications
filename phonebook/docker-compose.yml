@@ -4,15 +4,11 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile
-    volumes:
-      - ./frontend/:/usr/src/app
   server:
     image: phonebook-backend
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    volumes:
-      - ./backend/:/usr/src/app
     environment:
       - MONGODB_URI=mongodb://the_username:the_password@mongo_db:27017/phonebook_db
       - PORT=3001
